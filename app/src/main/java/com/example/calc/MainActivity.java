@@ -8,10 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+
 public class MainActivity extends AppCompatActivity {
-
-
-
     TextView output;
 
     Button b0;
@@ -24,6 +22,10 @@ public class MainActivity extends AppCompatActivity {
     Button b7;
     Button b8;
     Button b9;
+
+    Button bplus;
+    Button bmin;
+    Button bequal;
 
     Button bc;
 
@@ -43,6 +45,11 @@ public class MainActivity extends AppCompatActivity {
         b7 = findViewById(R.id.b7);
         b8 = findViewById(R.id.b8);
         b9 = findViewById(R.id.b9);
+
+        bplus = findViewById(R.id.bplus);
+        bmin = findViewById(R.id.bmin);
+
+        bequal = findViewById(R.id.bequal);
 
         bc = findViewById(R.id.bc);
 
@@ -101,15 +108,37 @@ public class MainActivity extends AppCompatActivity {
                         return;
                     case R.id.b9:
                         outputText = output.getText().toString();
-                        //outputText = removeLastChar(outputText);
                         outputText += "9";
+                        output.setText(outputText);
+                        return;
+
+                    case R.id.bplus:
+                        outputText = output.getText().toString();
+                        outputText += "+";
+                        output.setText(outputText);
+                        return;
+
+                    case R.id.bmin:
+                        outputText = output.getText().toString();
+                        outputText += "-";
                         output.setText(outputText);
                         return;
 
                     case R.id.bc:
                         outputText = output.getText().toString();
-                        outputText = removeLastChar(outputText);
-                        output.setText(outputText);
+                        if (outputText.length() > 0) {
+                            outputText = outputText.substring(0, outputText.length() - 1);
+                            output.setText(outputText);
+                        }
+                        return;
+
+                    case R.id.bequal:
+                        outputText = output.getText().toString();
+                        if (outputText.length() > 0) {
+                            double answer = Calculator.evaluate(outputText);
+                            outputText = Double.toString(answer);
+                            output.setText(outputText);
+                        }
                         return;
 
                     default:
@@ -127,6 +156,12 @@ public class MainActivity extends AppCompatActivity {
         b7.setOnClickListener(blistener);
         b8.setOnClickListener(blistener);
         b9.setOnClickListener(blistener);
+
+        bplus.setOnClickListener(blistener);
+        bmin.setOnClickListener(blistener);
+
+        bequal.setOnClickListener(blistener);
+
         bc.setOnClickListener(blistener);
 
 

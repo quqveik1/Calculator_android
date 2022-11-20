@@ -47,6 +47,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="9" />
+
+            <Button
+                android:id="@+id/bplus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="+" />
         </LinearLayout>
 
         <LinearLayout
@@ -71,6 +78,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="6" />
+
+            <Button
+                android:id="@+id/bmin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="-" />
         </LinearLayout>
 
         <LinearLayout
@@ -102,7 +116,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="0" />
+
     </LinearLayout>
+
+    <Button
+        android:id="@+id/bequal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="=" />
 
 
 </LinearLayout>
