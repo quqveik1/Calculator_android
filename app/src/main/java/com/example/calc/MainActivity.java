@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
     Button bplus;
     Button bmin;
+    Button bmul;
+    Button bdiv;
     Button bequal;
 
     Button bc;
@@ -48,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
         bplus = findViewById(R.id.bplus);
         bmin = findViewById(R.id.bmin);
+        bmul = findViewById(R.id.bmul);
+        bdiv = findViewById(R.id.bdiv);
 
         bequal = findViewById(R.id.bequal);
 
@@ -124,6 +128,18 @@ public class MainActivity extends AppCompatActivity {
                         output.setText(outputText);
                         return;
 
+                    case R.id.bmul:
+                        outputText = output.getText().toString();
+                        outputText += "*";
+                        output.setText(outputText);
+                        return;
+
+                    case R.id.bdiv:
+                        outputText = output.getText().toString();
+                        outputText += "/";
+                        output.setText(outputText);
+                        return;
+
                     case R.id.bc:
                         outputText = output.getText().toString();
                         if (outputText.length() > 0) {
@@ -135,8 +151,10 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.bequal:
                         outputText = output.getText().toString();
                         if (outputText.length() > 0) {
-                            double answer = Calculator.evaluate(outputText);
+                            Calculator _calc = new Calculator();
+                            double answer = _calc.calc(outputText);
                             outputText = Double.toString(answer);
+                            //String _text = _calc.openBrackets(outputText);
                             output.setText(outputText);
                         }
                         return;
@@ -159,6 +177,8 @@ public class MainActivity extends AppCompatActivity {
 
         bplus.setOnClickListener(blistener);
         bmin.setOnClickListener(blistener);
+        bmul.setOnClickListener(blistener);
+        bdiv.setOnClickListener(blistener);
 
         bequal.setOnClickListener(blistener);
 
